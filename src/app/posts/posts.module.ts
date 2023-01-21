@@ -6,7 +6,7 @@ import { postsReducers } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from './store/effects';
 import { HttpClientModule } from '@angular/common/http';
-
+import {TreeModule} from 'primeng/tree';
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     StoreModule.forFeature('posts', postsReducers),
     EffectsModule.forFeature([PostsEffects]),
     HttpClientModule,
+    TreeModule,
   ],
   exports: [
     PostsComponent,

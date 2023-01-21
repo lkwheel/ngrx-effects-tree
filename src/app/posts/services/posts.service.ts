@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TreeNode } from 'primeng/api';
 import { catchError, map, Observable, of } from 'rxjs';
 import { PostInterface } from '../model/post.interface';
 import { PostsPayloadInterface } from '../model/posts-payload.interface';
@@ -20,6 +21,27 @@ export class PostsService {
         return data.posts;
       }),
       catchError(this.handleError<PostInterface[]>('getPosts', [])));
+  }
+
+  public convertToTreeNode(post: PostInterface): TreeNode<string> {
+    const node: TreeNode<string> = {
+      key: post.id,
+      label: post.title,
+      data: post.url,
+      type: 'url',
+      expandedIcon: 'pi pi-circle',
+      collapsedIcon: 'pi pi-circle',
+    };
+    if (post.children) {
+      const _children: TreeNode<string>[] = [];
+      post.children.forEach(childNode => {
+        _children.push(this.convertToTreeNode(childNode));
+      });
+      node.children = _children;
+      node.expandedIcon = 'pi pi-folder-open';
+      node.collapsedIcon = 'pi pi-folder';
+    }
+    return node;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

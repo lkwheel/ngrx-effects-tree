@@ -1,5 +1,6 @@
 export interface PostInterface {
   id: string;
   title: string;
-  children: PostInterface[];
+  children?: PostInterface[];
+  url?: string;
 }
