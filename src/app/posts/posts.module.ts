@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { postsReducers } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from './store/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,6 +17,7 @@ import { PostsEffects } from './store/effects';
     CommonModule,
     StoreModule.forFeature('posts', postsReducers),
     EffectsModule.forFeature([PostsEffects]),
+    HttpClientModule,
   ],
   exports: [
     PostsComponent,
