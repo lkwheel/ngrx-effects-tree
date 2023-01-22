@@ -6,6 +6,14 @@
      class="flex-container">
   <div class="flex-child">
     <p-panel header="Posts">
+      <ng-template pTemplate="icons">
+        <button pButton class="p-panel-header-icon p-link"
+                icon="pi pi-cog"
+                (click)="menu.toggle($event)"
+                pTooltip="Options">
+        </button>
+        <p-menu #menu id="config_menu" [model]="postMenuItems" [popup]="true"></p-menu>
+      </ng-template>
       <p-tree [value]="posts"
               selectionMode="single"
               [(selection)]="selectedPost"
@@ -20,6 +28,9 @@
         </div>
         <div>
           <span class="label">URL: </span> <span>{{ selectedPost.data?.url }}</span>
+        </div>
+        <div *ngIf="selectedPost.data?.publishDate">
+          <span class="label">Publish Date: </span> <span>{{ selectedPost.data?.publishDate | date:'long' }}</span>
         </div>
         <div *ngIf="selectedPost.children">
           <span class="label">Sub-posts: </span> <span>{{ selectedPost.children.length }}</span>

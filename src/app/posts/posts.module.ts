@@ -7,8 +7,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from './store/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {TreeModule} from 'primeng/tree';
-import {PanelModule} from 'primeng/panel';
+import { TreeModule } from 'primeng/tree';
+import { PanelModule } from 'primeng/panel';
+import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
+import { MenuModule } from 'primeng/menu';
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import {PanelModule} from 'primeng/panel';
     BrowserAnimationsModule,
     TreeModule,
     PanelModule,
+    ToastModule,
+    ButtonModule,
+    MenuModule,
   ],
   exports: [
     PostsComponent,

@@ -1,14 +1,35 @@
 {
   "posts": [
-    { "id": "1", "title": "First post", "url": "http://localhost:4200/post/1" },
-    { "id": "2", "title": "Second post", "url": "http://localhost:4200/post/2" },
+    {
+      "id": "1",
+      "title": "First post",
+      "url": "http://localhost:4200/post/1",
+      "publishDate": "2023-01-01T01:30:00.000-05:00"
+    },
+    {
+      "id": "2",
+      "title": "Second post",
+      "url": "http://localhost:4200/post/2",
+      "publishDate": "2023-01-02T04:30:00.000-05:00"
+    },
     {
       "id": "3",
       "title": "Third post",
       "url": "http://localhost:4200/post/3",
+      "publishDate": "2023-01-04T12:00:00.000-05:00",
       "children": [
-        { "id": "3.1", "title": "Third post - child 1", "url": "http://localhost:4200/post/3/1" },
-        { "id": "3.2", "title": "Third post - child 2", "url": "http://localhost:4200/post/3/2" }
+        {
+          "id": "3.1",
+          "title": "Third post - child 1",
+          "url": "http://localhost:4200/post/3/1",
+          "publishDate": "2023-01-04T14:30:00.000-05:00"
+        },
+        {
+          "id": "3.2",
+          "title": "Third post - child 2",
+          "url": "http://localhost:4200/post/3/2",
+          "publishDate": "2023-01-04T15:30:00.000-05:00"
+        }
       ]
     }
   ]

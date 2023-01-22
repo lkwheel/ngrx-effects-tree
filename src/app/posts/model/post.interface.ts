@@ -3,4 +3,5 @@ export interface PostInterface {
   title: string;
   children?: PostInterface[];
   url?: string;
+  publishDate?: string;
 }

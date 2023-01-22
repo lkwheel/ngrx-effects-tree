@@ -35,6 +35,13 @@ export function postsReducers(
       };
     }
 
+    case PostsActions.PostsActionTypes.DeletePost: {
+      return {
+        ...state,
+        posts: state.posts.filter(p => p.id !== action.payload.post.id)
+      };
+    }
+
     default: {
       return state;
     }

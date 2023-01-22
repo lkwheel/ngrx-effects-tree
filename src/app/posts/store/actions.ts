@@ -4,7 +4,8 @@ import { PostInterface } from "../model/post.interface";
 export enum PostsActionTypes {
   GetPosts = '[Posts] Get Posts',
   GetPostsSuccess = '[Posts] Get Posts success',
-  GetPostsFailure = '[Posts] Get Posts failure'
+  GetPostsFailure = '[Posts] Get Posts failure',
+  DeletePost = '[Posts] Delete Post',
 };
 
 export class GetPostsAction implements Action {
@@ -23,6 +24,13 @@ export class GetPostsFailureAction implements Action {
   constructor(public payload: { error: string }) { }
 }
 
+export class DeletePostAction implements Action {
+  readonly type = PostsActionTypes.DeletePost;
+
+  constructor(public payload: { post: PostInterface }) { }
+}
+
 export type PostsActionsUnion = GetPostsAction
   | GetPostsSuccessAction
-  | GetPostsFailureAction;
+  | GetPostsFailureAction
+  | DeletePostAction;
