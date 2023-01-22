@@ -2,6 +2,40 @@
 
 <div *ngIf="isLoading$ | async">Loading...</div>
 <div *ngIf="errors$ | async as error">{{ error }}</div>
-<div *ngIf="posts$ | async as posts">
-  <p-tree [value]="posts"></p-tree>
+<div *ngIf="posts$ | async as posts"
+     class="flex-container">
+  <div class="flex-child">
+    <p-panel header="Posts">
+      <p-tree [value]="posts"
+              selectionMode="single"
+              [(selection)]="selectedPost"
+              (onNodeSelect)="nodeSelect($event)"></p-tree>
+    </p-panel>
+  </div>
+  <div class="flex-child">
+    <p-panel header="Details">
+      <div *ngIf="selectedPost else notselected" class="detailcontainer">
+        <div>
+          <span class="label">Title: </span> <span>{{ selectedPost.data?.title }}</span>
+        </div>
+        <div>
+          <span class="label">URL: </span> <span>{{ selectedPost.data?.url }}</span>
+        </div>
+        <div *ngIf="selectedPost.children">
+          <span class="label">Sub-posts: </span> <span>{{ selectedPost.children.length }}</span>
+          <ul class="subposts">
+            <li *ngFor="let childPost of selectedPost.children">
+              {{ childPost.label }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </p-panel>
+  </div>
 </div>
+
+<ng-template #notselected>
+  <div>
+    <span>Select post to see details</span>
+  </div>
+</ng-template>

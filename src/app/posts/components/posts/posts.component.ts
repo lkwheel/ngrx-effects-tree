@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { TreeNode } from 'primeng/api';
 import { map, Observable } from 'rxjs';
 import { AppStateInterface } from 'src/app/model/app-state.interface';
+import { PostInterface } from '../../model/post.interface';
 import { PostsService } from '../../services/posts.service';
 import * as PostsActions from '../../store/actions';
 import { errorSelector, isLoadingSelector, postsSelector } from '../../store/selectors';
@@ -15,7 +16,9 @@ import { errorSelector, isLoadingSelector, postsSelector } from '../../store/sel
 export class PostsComponent implements OnInit {
   isLoading$: Observable<boolean>;
   errors$: Observable<string | null>;
-  posts$: Observable<TreeNode<string>[]>;
+  posts$: Observable<TreeNode<PostInterface>[]>;
+
+  selectedPost: null | TreeNode<PostInterface> = null;
 
   constructor(private store: Store<AppStateInterface>, private postsSevice: PostsService) {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
@@ -28,6 +31,10 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new PostsActions.GetPostsAction());
+  }
+
+  nodeSelect(event: any) {
+    console.log('Node selected: ', this.selectedPost?.label);
   }
 
 }

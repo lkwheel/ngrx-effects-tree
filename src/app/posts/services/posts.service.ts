@@ -23,17 +23,17 @@ export class PostsService {
       catchError(this.handleError<PostInterface[]>('getPosts', [])));
   }
 
-  public convertToTreeNode(post: PostInterface): TreeNode<string> {
-    const node: TreeNode<string> = {
+  public convertToTreeNode(post: PostInterface): TreeNode<PostInterface> {
+    const node: TreeNode<PostInterface> = {
       key: post.id,
       label: post.title,
-      data: post.url,
+      data: post,
       type: 'url',
-      expandedIcon: 'pi pi-circle',
-      collapsedIcon: 'pi pi-circle',
+      expandedIcon: 'pi pi-globe',
+      collapsedIcon: 'pi pi-globe',
     };
     if (post.children) {
-      const _children: TreeNode<string>[] = [];
+      const _children: TreeNode<PostInterface>[] = [];
       post.children.forEach(childNode => {
         _children.push(this.convertToTreeNode(childNode));
       });
