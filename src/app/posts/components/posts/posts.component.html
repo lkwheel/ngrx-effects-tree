@@ -22,18 +22,25 @@
   </div>
   <div class="flex-child">
     <p-panel header="Details">
-      <div *ngIf="selectedPost else notselected" class="detailcontainer">
-        <div>
-          <span class="label">Title: </span> <span>{{ selectedPost.data?.title }}</span>
+      <ng-template pTemplate="icons">
+        <div class="center"><span class="switch-label">Show Summaries:</span>
+          <p-inputSwitch [(ngModel)]="showPostSummary"></p-inputSwitch>
         </div>
-        <div>
-          <span class="label">URL: </span> <span>{{ selectedPost.data?.url }}</span>
+      </ng-template>
+      <div *ngIf="selectedPost else notselected" class="wrapper">
+        <div class="form-row">
+          <span class="label">Title:</span> <span class="value">{{ selectedPost.data?.title }}</span>
         </div>
-        <div *ngIf="selectedPost.data?.publishDate">
-          <span class="label">Publish Date: </span> <span>{{ selectedPost.data?.publishDate | date:'long' }}</span>
+        <div class="form-row">
+          <span class="label">URL:</span> <span class="value">{{ selectedPost.data?.url }}</span>
+        </div>
+        <div class="form-row" *ngIf="selectedPost.data?.publishDate">
+          <span class="label">Publish Date:</span> <span class="value">{{ selectedPost.data?.publishDate | date:'long' }}</span>
         </div>
         <div *ngIf="selectedPost.children">
-          <span class="label">Sub-posts: </span> <span>{{ selectedPost.children.length }}</span>
+          <div class="form-row">
+            <span class="label">Sub-posts:</span> <span class="value">{{ selectedPost.children.length }}</span>
+          </div>
           <ul class="subposts">
             <li *ngFor="let childPost of selectedPost.children">
               {{ childPost.label }}

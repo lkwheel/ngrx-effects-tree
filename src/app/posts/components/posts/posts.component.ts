@@ -21,6 +21,8 @@ export class PostsComponent implements OnInit {
   postMenuItems: MenuItem[] = [];
   selectedPost: null | TreeNode<PostInterface> = null;
 
+  showPostSummary: boolean = false;
+
   constructor(private store: Store<AppStateInterface>, private postsSevice: PostsService) {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.errors$ = this.store.pipe(select(errorSelector));

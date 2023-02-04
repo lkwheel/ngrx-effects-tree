@@ -10,12 +10,22 @@
   margin-right: 20px;
 }
 
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.switch-label {
+  padding-right: 5px;
+}
+
 .detailscontainer {
   margin-top: 0.743rem;
 }
 
 .label {
   font-weight: bold;
+  margin-right: 5px;
 }
 
 .subposts {
@@ -25,4 +35,28 @@
 :host ::ng-deep .p-tree {
   padding: 0px;
   border: none;
+}
+
+.wrapper {
+  background-color: #f8f9fa;
+  list-style-type: none;
+  padding: 0;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em;
+}
+
+.form-row .label {
+  padding: .5em 1em .5em 0;
+  flex: 0.5;
+}
+
+.form-row .value {
+  flex: 2;
+  padding: .5em;
 }

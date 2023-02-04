@@ -6,6 +6,7 @@ export enum PostsActionTypes {
   GetPostsSuccess = '[Posts] Get Posts success',
   GetPostsFailure = '[Posts] Get Posts failure',
   DeletePost = '[Posts] Delete Post',
+  SetSelectedPost = '[Posts] Set Selected Post',
 };
 
 export class GetPostsAction implements Action {
@@ -24,6 +25,12 @@ export class GetPostsFailureAction implements Action {
   constructor(public payload: { error: string }) { }
 }
 
+export class SetSelectedPostAction implements Action {
+  readonly type = PostsActionTypes.SetSelectedPost;
+
+  constructor(public payload: { post: PostInterface | null }) { }
+}
+
 export class DeletePostAction implements Action {
   readonly type = PostsActionTypes.DeletePost;
 
@@ -33,4 +40,5 @@ export class DeletePostAction implements Action {
 export type PostsActionsUnion = GetPostsAction
   | GetPostsSuccessAction
   | GetPostsFailureAction
+  | SetSelectedPostAction
   | DeletePostAction;

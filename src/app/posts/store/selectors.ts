@@ -18,3 +18,8 @@ export const errorSelector = createSelector(
   selectFeature,
   (state: PostsStateInterface) => state.error
 );
+
+export const selectedPostSelector = createSelector(
+  selectFeature,
+  (state: PostsStateInterface) => state.selectedPost
+);

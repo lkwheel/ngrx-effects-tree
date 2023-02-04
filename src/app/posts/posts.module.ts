@@ -12,6 +12,8 @@ import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,11 +26,13 @@ import { MenuModule } from 'primeng/menu';
     EffectsModule.forFeature([PostsEffects]),
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
     TreeModule,
     PanelModule,
     ToastModule,
     ButtonModule,
     MenuModule,
+    InputSwitchModule,
   ],
   exports: [
     PostsComponent,

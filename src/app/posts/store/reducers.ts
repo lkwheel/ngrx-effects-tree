@@ -4,7 +4,8 @@ import * as PostsActions from './actions';
 export const initialState: PostsStateInterface = {
   isLoading: false,
   posts: [],
-  error: null
+  error: null,
+  selectedPost: null,
 };
 
 export function postsReducers(
@@ -39,6 +40,13 @@ export function postsReducers(
       return {
         ...state,
         posts: state.posts.filter(p => p.id !== action.payload.post.id)
+      };
+    }
+
+    case PostsActions.PostsActionTypes.SetSelectedPost: {
+      return {
+        ...state,
+        selectedPost: action.payload.post
       };
     }
 
