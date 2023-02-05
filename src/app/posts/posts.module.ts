@@ -14,12 +14,11 @@ import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { FormsModule } from '@angular/forms';
+import { PostRoutingModule } from './post-routing.module';
+import { PostDetailComponent } from './components/posts/post-detail/post-detail.component';
 
 
 @NgModule({
-  declarations: [
-    PostsComponent
-  ],
   imports: [
     CommonModule,
     StoreModule.forFeature('posts', postsReducers),
@@ -33,6 +32,11 @@ import { FormsModule } from '@angular/forms';
     ButtonModule,
     MenuModule,
     InputSwitchModule,
+    PostRoutingModule,
+  ],
+  declarations: [
+    PostsComponent,
+    PostDetailComponent,
   ],
   exports: [
     PostsComponent,

@@ -1,4 +1,5 @@
 import { isDevMode, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
@@ -15,16 +16,12 @@ import { PostsModule } from './posts/posts.module';
 import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopBarComponent,
-    MainNavbarComponent,
-    PageNotFoundComponent
-  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    FormsModule,
+    MenubarModule,
+    PostsModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot(),
     StoreDevtoolsModule.instrument({
@@ -32,10 +29,14 @@ import { TopBarComponent } from './top-bar/top-bar.component';
       logOnly: !isDevMode(),
       autoPause: true
     }),
-    MenubarModule,
-    PostsModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    TopBarComponent,
+    MainNavbarComponent,
+    PageNotFoundComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

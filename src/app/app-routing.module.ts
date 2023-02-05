@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostListComponent } from './posts/components/posts/post-list/post-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PostsComponent } from './posts/components/posts/posts.component';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 const routes: Routes = [
-  { path: 'blogs', component: PostListComponent },
-  { path: '', component: PostListComponent },
   { path: 'post-editor', component: PostsComponent },
+  { path: '', redirectTo: '/posts', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -21,6 +19,8 @@ const routes: Routes = [
         preloadingStrategy: SelectivePreloadingStrategyService,
       }
     )],
-  exports: [RouterModule]
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }
