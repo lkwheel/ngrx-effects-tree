@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { PostInterface } from "../model/post.interface";
+import { PostInterface } from "../../model/post.interface";
 
 export enum PostsActionTypes {
   GetPosts = '[Posts] Get Posts',

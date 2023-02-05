@@ -3,8 +3,8 @@ import { select, Store } from '@ngrx/store';
 import { MenuItem, TreeNode } from 'primeng/api';
 import { map, Observable } from 'rxjs';
 import { AppStateInterface } from 'src/app/model/app-state.interface';
-import { PostInterface } from '../../model/post.interface';
-import { PostsService } from '../../services/posts.service';
+import { PostInterface } from '../../../model/post.interface';
+import { PostsService } from '../../../services/posts.service';
 import * as PostsActions from '../../store/actions';
 import { errorSelector, isLoadingSelector, postsSelector } from '../../store/selectors';
 

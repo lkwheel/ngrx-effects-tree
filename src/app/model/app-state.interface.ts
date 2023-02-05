@@ -1,4 +1,4 @@
-import { PostsStateInterface } from "../posts/model/posts-state.interface";
+import { PostsStateInterface } from "../model/posts-state.interface";
 
 /**
  * Global state of the application

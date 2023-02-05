@@ -11,8 +11,13 @@ const POSTS_URL = '/assets/posts.json';
   providedIn: 'root'
 })
 export class PostsService {
+  [x: string]: any;
 
   constructor(private http: HttpClient) { }
+
+  getPost(id: string): Observable<PostInterface> {
+    return this.http.get<PostInterface>('');
+  }
 
   getPosts(): Observable<PostInterface[]> {
     return this.http.get<PostsPayloadInterface>(POSTS_URL).pipe(

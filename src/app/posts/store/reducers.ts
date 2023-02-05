@@ -1,4 +1,4 @@
-import { PostsStateInterface } from '../model/posts-state.interface';
+import { PostsStateInterface } from '../../model/posts-state.interface';
 import * as PostsActions from './actions';
 
 export const initialState: PostsStateInterface = {
